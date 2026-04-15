@@ -43,8 +43,8 @@ const Navbar = () => {
     </div>
   );
   return (
-    <div className="w-11/12 mx-auto">
-      <div className="navbar bg-base-100 ">
+    <nav className="bg-base-100 shadow-sm">
+      <div className="navbar  container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -79,7 +79,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1 text-[16px]">{links}</ul>
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 
