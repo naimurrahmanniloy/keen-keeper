@@ -1,9 +1,50 @@
 import React from "react";
+import { AiTwotoneHome } from "react-icons/ai";
+import { FiClock } from "react-icons/fi";
+import { ImStatsDots } from "react-icons/im";
+import { Link, NavLink } from "react-router";
 
 const Navbar = () => {
+  const links = (
+    <div className="flex items-center align-center gap-3">
+      <li>
+        <NavLink
+          to={"/"}
+          className={({ isActive }) =>
+            isActive ? "bg-[#244d3f] text-white" : ""
+          }
+        >
+          <AiTwotoneHome className="text-xl" />
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to={"/timeline"}
+          className={({ isActive }) =>
+            isActive ? "bg-[#244d3f] text-white" : ""
+          }
+        >
+          <FiClock />
+          Timeline
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to={"/stats"}
+          className={({ isActive }) =>
+            isActive ? "bg-[#244d3f] text-white" : ""
+          }
+        >
+          <ImStatsDots />
+          Stats
+        </NavLink>
+      </li>
+    </div>
+  );
   return (
     <div className="w-11/12 mx-auto">
-      <div className="navbar bg-base-100 shadow-sm">
+      <div className="navbar bg-base-100 ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -25,29 +66,17 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text-[16px]"
             >
-              <li>
-                <a>Item 1</a>
-              </li>
-
-              <li>
-                <a>Item 3</a>
-              </li>
+              {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <a className="btn btn-ghost text-xl">
+            Keen<span className="text-[#244d3f]">Keeper</span>
+          </a>
         </div>
         <div className="navbar-end hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <a>Item 1</a>
-            </li>
-
-            <li>
-              <a>Item 3</a>
-            </li>
-          </ul>
+          <ul className="menu menu-horizontal px-1 text-[16px]">{links}</ul>
         </div>
       </div>
     </div>

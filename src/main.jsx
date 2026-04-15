@@ -7,6 +7,8 @@ import Mainlayout from "./layout/Mainlayout";
 import Homepage from "./pages/Homepage/Homepage";
 import FriendsPage from "./pages/FriendsPage/FriendsPage";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
+import Timeline from "./pages/Timeline/Timeline";
+import Stats from "./pages/Stats/Stats";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,14 @@ const router = createBrowserRouter([
       {
         path: "/friends",
         element: <FriendsPage />,
+      },
+      {
+        path: "/timeline",
+        element: <Timeline />,
+      },
+      {
+        path: "/stats",
+        element: <Stats />,
       },
     ],
     errorElement: <ErrorPage />,
