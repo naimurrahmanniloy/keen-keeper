@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { IoMdAdd } from "react-icons/io";
 import AllFriends from "./AllFriends";
 
@@ -49,7 +49,13 @@ const Homepage = () => {
       </div>
       <div className="bg-base-200">
         <div className="container mx-auto">
-          <AllFriends />
+          <Suspense
+            fallback={
+              <span className="loading loading-spinner loading-xl"></span>
+            }
+          >
+            <AllFriends />
+          </Suspense>
         </div>
       </div>
     </div>
