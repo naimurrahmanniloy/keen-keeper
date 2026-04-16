@@ -24,27 +24,29 @@ const Homepage = () => {
           </div>
         </div>
 
-        <div className="tracked-section container mx-auto mt-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 ">
-            {" "}
-            <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-8 text-center max-w-xs">
+        <div className="tracked-section container mx-auto mt-10 px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
+            <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-8 text-center w-full max-w-xs">
               <h1 className="text-[#244d3f] font-bold text-[30px]">8</h1>
               <p className="py-2 text-[#64748b]">Total Friends</p>
             </div>
-            <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-8 text-center max-w-xs">
+
+            <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-8 text-center w-full max-w-xs">
               <h1 className="text-[#244d3f] font-bold text-[30px]">2</h1>
               <p className="py-2 text-[#64748b]">On Track</p>
             </div>
-            <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-8 text-center max-w-xs">
+
+            <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-8 text-center w-full max-w-xs">
               <h1 className="text-[#244d3f] font-bold text-[30px]">6</h1>
               <p className="py-2 text-[#64748b]">Need Attention</p>
             </div>
-            <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-8 text-center max-w-xs">
+
+            <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-8 text-center w-full max-w-xs">
               <h1 className="text-[#244d3f] font-bold text-[30px]">8</h1>
               <p className="py-2 text-[#64748b]">Interaction This Month</p>
             </div>
           </div>
-          <hr className="mt-10 h-0.5 border-[#64748b]" />
+          <hr className="mt-10 h-0.5 border-[#e2e8f0]" />{" "}
         </div>
       </div>
       <div className="bg-base-200">

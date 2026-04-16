@@ -27,6 +27,9 @@ const DetailsPageCard = ({ expectedData }) => {
             <p className="text-gray-500 italic text-[15px]">
               "{expectedData.bio}"
             </p>
+            <p className="text-gray-500 italic text-[15px]">
+              Email: {expectedData.email}
+            </p>
           </div>
         </div>
       </div>
