@@ -71,8 +71,11 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
+
           <a className="btn btn-ghost text-xl">
-            Keen<span className="text-[#244d3f]">Keeper</span>
+            <span>
+              Keen<span className="text-[#244d3f]">Keeper</span>
+            </span>
           </a>
         </div>
         <div className="navbar-end hidden lg:flex">
