@@ -9,7 +9,7 @@
     "tags": ["college", "hiking"],
     "bio": "Study buddy from CS 101. Always down for a weekend trail run.",
     "goal": 14,
-    "next_due_date": "2026-03-31"
+    "next_due_date": "March 31, 2026"
   },
   {
     "id": 2,
@@ -21,7 +21,7 @@
     "tags": ["work", "mentor"],
     "bio": "Lead designer at my first job. We talk about career growth and UI trends.",
     "goal": 30,
-    "next_due_date": "2026-05-12"
+    "next_due_date": "May 12, 2026"
   },
   {
     "id": 3,
@@ -33,7 +33,7 @@
     "tags": ["childhood", "close friend"],
     "bio": "Known him since 2nd grade. Currently living in London.",
     "goal": 45,
-    "next_due_date": "2026-02-28"
+    "next_due_date": "June 28, 2026"
   },
   {
     "id": 4,
@@ -45,7 +45,7 @@
     "tags": ["gym", "neighbor"],
     "bio": "My morning workout partner. Keeps me accountable on leg days.",
     "goal": 7,
-    "next_due_date": "2026-04-17"
+    "next_due_date": "April 17, 2026"
   },
   {
     "id": 5,
@@ -57,7 +57,7 @@
     "tags": ["gaming", "college"],
     "bio": "Part of the Friday night DnD group. Huge sci-fi nerd.",
     "goal": 14,
-    "next_due_date": "2026-04-18"
+    "next_due_date": "July 18, 2026"
   },
   {
     "id": 6,
@@ -69,7 +69,7 @@
     "tags": ["travel", "old friend"],
     "bio": "Met during a backpacking trip in Thailand. Needs a catch-up call.",
     "goal": 90,
-    "next_due_date": "2026-01-10"
+    "next_due_date": "December 10, 2026"
   },
   {
     "id": 7,
@@ -81,7 +81,7 @@
     "tags": ["family", "brother"],
     "bio": "My brother. We share memes and talk about family stuff daily.",
     "goal": 3,
-    "next_due_date": "2026-04-16"
+    "next_due_date": "September 16, 2026"
   },
   {
     "id": 8,
@@ -93,6 +93,6 @@
     "tags": ["art", "community"],
     "bio": "Local painter. We met at a gallery opening last year.",
     "goal": 30,
-    "next_due_date": "2026-04-05"
+    "next_due_date": "August 05, 2026"
   }
 ]

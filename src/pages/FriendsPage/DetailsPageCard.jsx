@@ -23,6 +23,10 @@ const DetailsPageCard = ({ expectedData }) => {
             >
               {expectedData.status}
             </div>
+
+            <p className="text-gray-500 italic text-[15px]">
+              "{expectedData.bio}"
+            </p>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React, { use } from "react";
-import BookCard from "../ui/BookCard";
+import FriendCard from "../ui/FriendCard";
 
 const friends = fetch("/data.json").then((res) => res.json());
 
@@ -12,7 +12,10 @@ const AllFriends = () => {
       <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         {friendsData.map((friendData) => {
           return (
-            <BookCard friendData={friendData} key={friendData.id}></BookCard>
+            <FriendCard
+              friendData={friendData}
+              key={friendData.id}
+            ></FriendCard>
           );
         })}
       </div>

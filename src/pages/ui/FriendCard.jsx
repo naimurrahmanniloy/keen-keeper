@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 
-const BookCard = ({ friendData }) => {
+const FriendCard = ({ friendData }) => {
   return (
     <Link to={`/friendDetails/${friendData.id}`}>
       <div className="card bg-base-100 w-80% p-10 shadow-sm">
@@ -31,4 +31,4 @@ const BookCard = ({ friendData }) => {
   );
 };
 
-export default BookCard;
+export default FriendCard;
