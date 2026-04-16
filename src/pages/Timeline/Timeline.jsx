@@ -2,10 +2,20 @@ import React, { useContext } from "react";
 import { FriendContext } from "../../context/FriendContext";
 import { MdAddIcCall } from "react-icons/md";
 import { LuMessageSquareText } from "react-icons/lu";
+import { BiVideo } from "react-icons/bi";
+import { format } from "date-fns";
+import { DiBackbone } from "react-icons/di";
+import NoDataFound from "../../components/NoDataFound/NoDataFound";
 
 const Timeline = () => {
   const { personalData } = useContext(FriendContext);
-  return (
+  const formattedDate = format(new Date(), "MMMM d, yyyy");
+
+  return personalData.length == 0 ? (
+    <div className="h-120">
+      <NoDataFound />
+    </div>
+  ) : (
     <div className="container mx-auto p-6 font-sans">
       <h2 className="text-3xl font-bold text-[#1e293b] mb-6">Timeline</h2>
       {/* Filter Dropdown */}
@@ -40,6 +50,11 @@ const Timeline = () => {
               ) : (
                 ""
               )}
+              {data.type == "Video" ? (
+                <BiVideo className="w-8 h-8 text-[#1a3a32] mb-2" />
+              ) : (
+                ""
+              )}
             </div>
             <div className="flex flex-col">
               <div className="text-[#334155] font-semibold text-lg">
@@ -48,7 +63,9 @@ const Timeline = () => {
                   with {data.name}
                 </span>
               </div>
-              <div className="text-[#94a3b8] text-sm mt-0.5">{data.date}</div>
+              <div className="text-[#94a3b8] text-sm mt-0.5">
+                {formattedDate}
+              </div>
             </div>
           </div>
         ))}

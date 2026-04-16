@@ -6,18 +6,20 @@ export const FriendContext = createContext();
 
 const FriendProvider = ({ children }) => {
   const [personalData, setPersonalData] = useState([]);
-  const handleCallBtn = (wholeData) => {
-    setPersonalData([...personalData, wholeData]);
-
-    toast.success(`Calling ${wholeData.name}`);
-  };
 
   const handleBtn = (data) => {
     setPersonalData([...personalData, data]);
-    toast.success(`Texting ${data.name}`);
+    {
+      data.type == "Call" ? toast.success(`Call with ${data.name}`) : "";
+    }
+    {
+      data.type == "Text" ? toast.success(`Text with ${data.name}`) : "";
+    }
+    {
+      data.type == "Video" ? toast.success(`Video Call with ${data.name}`) : "";
+    }
   };
   const data = {
-    handleCallBtn,
     handleBtn,
     setPersonalData,
     personalData,
