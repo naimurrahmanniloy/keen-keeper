@@ -1,74 +1,103 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FriendContext } from "../../context/FriendContext";
 import { MdAddIcCall } from "react-icons/md";
 import { LuMessageSquareText } from "react-icons/lu";
 import { BiVideo } from "react-icons/bi";
 import { format } from "date-fns";
-import { DiBackbone } from "react-icons/di";
 import NoDataFound from "../../components/NoDataFound/NoDataFound";
+import { FaAngleDown } from "react-icons/fa";
 
 const Timeline = () => {
   const { personalData } = useContext(FriendContext);
   const formattedDate = format(new Date(), "MMMM d, yyyy");
 
-  return personalData.length == 0 ? (
-    <div className="h-120">
-      <NoDataFound />
-    </div>
-  ) : (
+  const [filterType, setFilterType] = useState("All");
+
+  const filteredData =
+    filterType === "All"
+      ? personalData
+      : personalData.filter((item) => item.type === filterType);
+
+  if (personalData.length === 0) {
+    return (
+      <div className="h-120">
+        <NoDataFound />
+      </div>
+    );
+  }
+
+  return (
     <div className="container mx-auto p-6 font-sans">
       <h2 className="text-3xl font-bold text-[#1e293b] mb-6">Timeline</h2>
+
       {/* Filter Dropdown */}
       <div className="relative w-full sm:w-64 mb-8">
-        <select className="appearance-none w-full bg-white border border-gray-100 rounded-lg px-4 py-2.5 text-gray-500 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20">
-          <option>Filter timeline</option>
-        </select>
-        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-400">
-          <svg
-            className="fill-current h-4 w-4"
-            xmlns="http://w3.org"
-            viewBox="0 0 20 20"
-          >
-            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-          </svg>
-        </div>
-      </div>{" "}
-      <div className="space-y-4 ">
-        {personalData.map((data) => (
+        <div className="dropdown dropdown-bottom">
           <div
-            key={data.id}
-            className="flex items-center p-5 bg-white border border-gray-100 rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+            tabIndex={0}
+            role="button"
+            className="btn m-1 bg-white border-gray-200"
           >
-            <div className="text-3xl mr-5 grayscale-[0.2]">
-              {data.type == "Text" ? (
-                <LuMessageSquareText className="w-8 h-8 text-[#1a3a32] mb-2" />
-              ) : (
-                ""
-              )}
-              {data.type == "Call" ? (
-                <MdAddIcCall className="w-8 h-8 text-[#1a3a32] mb-2" />
-              ) : (
-                ""
-              )}
-              {data.type == "Video" ? (
-                <BiVideo className="w-8 h-8 text-[#1a3a32] mb-2" />
-              ) : (
-                ""
-              )}
-            </div>
-            <div className="flex flex-col">
-              <div className="text-[#334155] font-semibold text-lg">
-                {data.type}{" "}
-                <span className="text-[#64748b] font-normal">
-                  with {data.name}
-                </span>
-              </div>
-              <div className="text-[#94a3b8] text-sm mt-0.5">
-                {formattedDate}
-              </div>
-            </div>
+            {filterType === "All" ? "All Interactions" : filterType}{" "}
+            <FaAngleDown />
           </div>
-        ))}
+          <ul
+            tabIndex={0}
+            className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-lg border border-gray-100"
+          >
+            <li>
+              <button onClick={() => setFilterType("All")}>All</button>
+            </li>
+            <li>
+              <button onClick={() => setFilterType("Call")}>Call</button>
+            </li>
+            <li>
+              <button onClick={() => setFilterType("Text")}>Text</button>
+            </li>
+            <li>
+              <button onClick={() => setFilterType("Video")}>Video</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="space-y-4">
+        {filteredData.length > 0 ? (
+          filteredData.map((data) => (
+            <div
+              key={data.id}
+              className="flex items-center p-5 bg-white border border-gray-100 rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+            >
+              <div className="mr-5">
+                {data.type === "Text" && (
+                  <LuMessageSquareText className="w-8 h-8 text-[#1a3a32]" />
+                )}
+                {data.type === "Call" && (
+                  <MdAddIcCall className="w-8 h-8 text-[#1a3a32]" />
+                )}
+                {data.type === "Video" && (
+                  <BiVideo className="w-8 h-8 text-[#1a3a32]" />
+                )}
+              </div>
+
+              <div className="flex flex-col">
+                <div className="text-[#334155] font-semibold text-lg">
+                  {data.type}{" "}
+                  <span className="text-[#64748b] font-normal">
+                    with {data.name}
+                  </span>
+                </div>
+                <div className="text-[#94a3b8] text-sm mt-0.5">
+                  {formattedDate}
+                </div>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="text-center py-10 text-gray-400 italic">
+            No {filterType} interactions found.
+          </div>
+        )}
       </div>
     </div>
   );

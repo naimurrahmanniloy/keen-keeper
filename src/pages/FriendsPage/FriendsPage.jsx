@@ -78,9 +78,9 @@ const FriendsPage = () => {
           <h3 className="text-[#1a3a32] font-semibold text-lg mb-4">
             Quick Check-In
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid  lg:grid-cols-3 gap-4">
             <button
-              className="flex flex-col items-center justify-center py-6 px-4 bg-white border border-gray-100 rounded-lg hover:bg-gray-50 transition-colors shadow-sm"
+              className="flex flex-col items-center justify-center py-6 px-4 bg-white border border-gray-100 rounded-lg hover:bg-gray-50 transition-colors shadow-sm cursor-pointer"
               onClick={() => handleBtn({ ...expectedData, type: "Call" })}
             >
               <MdAddIcCall className="w-8 h-8 text-[#1a3a32] mb-2" />
@@ -88,7 +88,7 @@ const FriendsPage = () => {
             </button>
 
             <button
-              className="flex flex-col items-center justify-center py-6 px-4 bg-white border border-gray-100 rounded-lg hover:bg-gray-50 transition-colors shadow-sm"
+              className="flex flex-col items-center justify-center py-6 px-4 bg-white border border-gray-100 rounded-lg hover:bg-gray-50 transition-colors shadow-sm cursor-pointer"
               onClick={() => handleBtn({ ...expectedData, type: "Text" })}
             >
               <LuMessageSquareText className="w-8 h-8 text-[#1a3a32] mb-2" />
@@ -96,7 +96,7 @@ const FriendsPage = () => {
             </button>
 
             <button
-              className="flex flex-col items-center justify-center py-6 px-4 bg-white border border-gray-100 rounded-lg hover:bg-gray-50 transition-colors shadow-sm"
+              className="flex flex-col items-center justify-center py-6 px-4 bg-white border border-gray-100 rounded-lg hover:bg-gray-50 transition-colors shadow-sm cursor-pointer"
               onClick={() => handleBtn({ ...expectedData, type: "Video" })}
             >
               <BiVideo className="w-8 h-8 text-[#1a3a32] mb-2" />
