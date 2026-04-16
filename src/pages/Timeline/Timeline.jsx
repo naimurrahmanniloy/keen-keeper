@@ -1,14 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FriendContext } from "../../context/FriendContext";
 import { MdAddIcCall } from "react-icons/md";
-import CallCard from "./CallCard";
-import TextCard from "./TextCard";
+import { LuMessageSquareText } from "react-icons/lu";
 
 const Timeline = () => {
+  const { personalData } = useContext(FriendContext);
   return (
     <div className="container mx-auto p-6 font-sans">
       <h2 className="text-3xl font-bold text-[#1e293b] mb-6">Timeline</h2>
-
       {/* Filter Dropdown */}
       <div className="relative w-full sm:w-64 mb-8">
         <select className="appearance-none w-full bg-white border border-gray-100 rounded-lg px-4 py-2.5 text-gray-500 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20">
@@ -23,12 +22,37 @@ const Timeline = () => {
             <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
           </svg>
         </div>
+      </div>{" "}
+      <div className="space-y-4 ">
+        {personalData.map((data) => (
+          <div
+            key={data.id}
+            className="flex items-center p-5 bg-white border border-gray-100 rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+          >
+            <div className="text-3xl mr-5 grayscale-[0.2]">
+              {data.type == "Text" ? (
+                <LuMessageSquareText className="w-8 h-8 text-[#1a3a32] mb-2" />
+              ) : (
+                ""
+              )}
+              {data.type == "Call" ? (
+                <MdAddIcCall className="w-8 h-8 text-[#1a3a32] mb-2" />
+              ) : (
+                ""
+              )}
+            </div>
+            <div className="flex flex-col">
+              <div className="text-[#334155] font-semibold text-lg">
+                {data.type}{" "}
+                <span className="text-[#64748b] font-normal">
+                  with {data.name}
+                </span>
+              </div>
+              <div className="text-[#94a3b8] text-sm mt-0.5">{data.date}</div>
+            </div>
+          </div>
+        ))}
       </div>
-
-      {/* Call Items */}
-      <CallCard />
-      {/* Text Items */}
-      <TextCard />
     </div>
   );
 };

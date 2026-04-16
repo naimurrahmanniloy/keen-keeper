@@ -15,7 +15,7 @@ const FriendsPage = () => {
 
   const expectedData = friendsData.find((friendData) => friendData.id == id);
 
-  const { handleCallBtn, handleTextBtn } = useContext(FriendContext);
+  const { handleBtn } = useContext(FriendContext);
 
   return (
     <div className="container mx-auto my-4 flex gap-2">
@@ -80,7 +80,7 @@ const FriendsPage = () => {
               {/* Call Card */}
               <button
                 className="flex flex-col items-center justify-center py-6 px-4 bg-white border border-gray-100 rounded-lg hover:bg-gray-50 transition-colors shadow-sm"
-                onClick={() => handleCallBtn(expectedData)}
+                onClick={() => handleBtn({ ...expectedData, type: "Call" })}
               >
                 <MdAddIcCall className="w-8 h-8 text-[#1a3a32] mb-2" />
                 <span className="text-gray-600 font-medium">Call</span>
@@ -89,7 +89,7 @@ const FriendsPage = () => {
               {/* Text Card */}
               <button
                 className="flex flex-col items-center justify-center py-6 px-4 bg-white border border-gray-100 rounded-lg hover:bg-gray-50 transition-colors shadow-sm"
-                onClick={() => handleTextBtn(expectedData)}
+                onClick={() => handleBtn({ ...expectedData, type: "Text" })}
               >
                 <LuMessageSquareText className="w-8 h-8 text-[#1a3a32] mb-2" />
                 <span className="text-gray-600 font-medium">Text</span>
